@@ -19,7 +19,20 @@ public class MyResource {
      */
     @GET
     @Produces(MediaType.TEXT_PLAIN)
-    public String getIt() {
-        return "Got it!";
+    public String getItText() {
+        return getProcessor();
     }
+    @GET
+    @Produces(MediaType.TEXT_HTML)
+    public String getItHTML() {
+        return getProcessor();
+    }
+    @GET
+    @Produces(MediaType.TEXT_XML)
+    public String getItXML() {
+        return getProcessor();
+    }
+	private String getProcessor() {
+		return "Got it!";
+	}
 }
