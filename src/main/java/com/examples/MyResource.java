@@ -32,6 +32,11 @@ public class MyResource {
     public String getItXML() {
         return getProcessor();
     }
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getItJSON() {
+        return getProcessor();
+    }
 	private String getProcessor() {
 		return "Got it!";
 	}

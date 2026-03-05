@@ -2,6 +2,7 @@ package com.examples.repository;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
 
 import com.examples.model.Employee;
 
@@ -12,7 +13,7 @@ public class EmployeeRepository {
 
 	private EmployeeRepository() {
 		employees.add(new Employee("ID1", "Peter", 1000));
-		employees.add(new Employee("ID2", "Paul", 2000));	
+		employees.add(new Employee("ID2", "Paul", 2000));
 		employees.add(new Employee("ID3", "Mary", 3000));
 	}
 
@@ -23,11 +24,9 @@ public class EmployeeRepository {
 		return employees;
 	}
 
-	public Employee findOne(String id) {
-		Employee employee = employees.stream()
+	public Optional<Employee> findOne(String id) {
+		return employees.stream()
 			.filter(e -> e.getEmployeeId().equals(id))
-			.findFirst()
-			.orElse(null);
-		return employee;
+			.findFirst();
 	}
 }
